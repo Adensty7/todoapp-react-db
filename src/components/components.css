@@ -1,0 +1,21 @@
+.border-white {
+    border: 2px solid white;
+  }
+  
+  
+  .text-blue {
+    color: paleturquoise;
+  }
+  
+  .btn-blue {
+    background-color: paleturquoise;
+  }
+  
+  .done:hover {
+    text-decoration: line-through;
+  }
+  
+  input.list-check {
+    width: 25px;
+    height: 25px;
+  }

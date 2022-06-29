@@ -18,7 +18,7 @@ const Todos = () => {
         return (
             <div className="todos">
         <div className="container">
-            <div class="row  justify-content-center">
+            <div class="row justify-content-center">
                     <div class="col-lg-6">
 
                         <div class="list-group m-3 p-3" >

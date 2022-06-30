@@ -3,9 +3,6 @@ import './components.css';
 import Cookies from 'universal-cookie';
 
 const LoginPage = () => {
-    const [username, setUsername] = useState('');
-    const [remember, setRemember] = useState(false);
-
 
     const cookies = new Cookies();
 
@@ -14,6 +11,9 @@ const LoginPage = () => {
     if (UserID){
       window.location.href = "/";
     }
+
+    const [username, setUsername] = useState('');
+    const [remember, setRemember] = useState(false);
     
     useEffect(() => {
       document.title = "Sign in"

@@ -20,8 +20,8 @@ const TodosPage = () => {
     const [loading, setLoading] = useState(false);
 
     const handleSignOut = () => {
-        cookies.remove('UserID'); 
         window.location.href = '/login';
+        cookies.remove('UserID'); 
     }
 
     useEffect(() => {

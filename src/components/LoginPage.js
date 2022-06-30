@@ -1,13 +1,33 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './components.css';
+import Cookies from 'universal-cookie';
 
 const LoginPage = () => {
     const [username, setUsername] = useState('');
     const [remember, setRemember] = useState(false);
 
 
-    const handleSubmit = (e) => {
+    const cookies = new Cookies();
+
+    const UserID = cookies.get('UserID');
+
+    if (UserID){
+      window.location.href = "/";
+    }
+    
+    useEffect(() => {
+      document.title = "Sign in"
+    })
+
+    const handleLogin = (e) => {
         e.preventDefault();
+        if (remember){
+          cookies.set('UserID', username, { path: "/"});
+        }
+        else {
+          cookies.set('UserID', username, { path: "/" , maxAge: 3600});
+        }
+        window.location.href = "/";
     };
 
 
@@ -19,7 +39,7 @@ const LoginPage = () => {
           <div class="card-body w-100">
             <h3 class="m-3">Todo App</h3>
 
-            <form onSubmit={handleSubmit} autocomplete="off">
+            <form onSubmit={handleLogin} autocomplete="off">
               <div class="input-group mb-4">
                 <input
                   type="text"

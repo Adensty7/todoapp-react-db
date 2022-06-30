@@ -10,12 +10,13 @@ const TodoNavbar = (props) => {
                 <div className="container-lg justify-content-center">
                     <h1 className="h1">Todo List</h1>
                 </div>
-                <span class="pt-5"  >
-                    <a onClick={handleSignOut}>Sign out</a>
-                </span>
+                
                 <div className="container-lg justify-content-center">
                 <h3>Currently you have {todos.length} { todos.length === 1 ? items[0] : items[1] } in your list.</h3>
                 </div>
+                <span class="pt-5 float-end"  >
+                    <a onClick={handleSignOut}>Sign out</a>
+                </span>
                 
             </nav>
         </div>
@@ -25,12 +26,13 @@ const TodoNavbar = (props) => {
                 <div className="container-lg justify-content-center">
                     <h1 className="h1">Todo List</h1>
                 </div>
-                <span class="pt-5" onClick={handleSignOut}>
-                    <a onClick={handleSignOut}>Sign out</a>
-                </span>
+                
                 <div className="container-lg justify-content-center">
                 <h3>Currently, you have nothing to do.</h3>
                 </div>
+                <span class="pt-5 float-end">
+                    <a onClick={handleSignOut}>Sign out</a>
+                </span>
             </nav>
         </div>
     );

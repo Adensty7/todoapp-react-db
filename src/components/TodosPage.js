@@ -24,21 +24,60 @@ const TodosPage = () => {
         window.location.href = '/login';
     }
 
-
     useEffect(() => {
-        document.title = "My Todo List"
-        axios.get("https://adensty-todoapp-react-db-api.herokuapp.com/user/" + UserID)
-        .then((res) => {
-          console.log(res.data);
-          setTodos(res.data);
-          setLoading(true);
-        });
-    }, [])
+      document.title = "My Todo List"
+      axios.get("https://adensty-todoapp-react-db-api.herokuapp.com/user/" + UserID)
+      .then((res) => {
+        //console.log(res.data);
+        setTodos(res.data);
+        setLoading(true);
+      });
+  }, [todos])
+
+    const addTodo = (e, todo, UserID) => {
+      e.preventDefault();
+      if(todo.length <= 36){
+        axios.post("https://adensty-todoapp-react-db-api.herokuapp.com/", {
+        "user_id": UserID,
+        "todo": todo,
+        "done": false
+      })
+      .then((res) => {
+        console.log(res);
+      })
+      }
+      else {
+        alert("A Todo can't be this long. Try somethin shorter.");
+      }
+      
+    }
+
+    const deleteTodo = (e, id) => {
+      e.preventDefault();
+      axios.delete("https://adensty-todoapp-react-db-api.herokuapp.com/" + id)
+      .then((res) => {
+        console.log(res);
+      })
+    }
+
+    const updateTodo = (e, done, id) => {
+      e.preventDefault();
+      axios.put("https://adensty-todoapp-react-db-api.herokuapp.com/" + id, {
+      "done": !done
+      })
+      .then((res) => {
+        console.log(res);
+      })
+      
+      
+    }
+
+    
     return ( 
         <div>
             {loading && <TodoNavbar todos={todos} handleSignOut={handleSignOut} /> }
-            {loading && <Todos todos={todos} /> }
-            {loading && <TodoForm />}
+            {loading && <Todos todos={todos} deleteTodo={deleteTodo} updateTodo={updateTodo} /> }
+            {loading && <TodoForm UserID={UserID} addTodo={addTodo}/>}
         </div>
      );
 }

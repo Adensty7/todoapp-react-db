@@ -15,3 +15,22 @@
     width: 25px;
     height: 25px;
   }
+
+  .donetodo {
+    color: greenyellow;
+    text-decoration: line-through;
+  }
+
+  .donetodo:hover {
+    color: crimson;
+    text-decoration: none;
+  }
+
+  .notdone {
+    color: crimson;
+  }
+
+  .notdone:hover {
+    color: greenyellow;
+    text-decoration: line-through;
+  }

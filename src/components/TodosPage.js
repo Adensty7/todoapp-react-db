@@ -42,7 +42,7 @@ const TodosPage = () => {
         alert("This task is already in your To Do List");
       }
       else {
-      if(todo.length <= 36){
+      if(todo.length <= 36 ){
         axios.post("https://adensty-todoapp-react-db-api.herokuapp.com/", {
         "user_id": UserID,
         "todo": todo,

@@ -8,18 +8,15 @@ const TodoNavbar = (props) => {
         <div className="todos-navbar">
             <nav class="navbar m-3 p-3 border-white bg-dark text-blue text-center">
                 <div className="container-lg justify-content-center">
-                    <h1 className="h1">Todo List</h1>
+                    <h1 className="h1">{userID}'s Todo List</h1>
                 </div>
                 
                 <div className="container-lg justify-content-center">
                 <h3>Currently you have {todos.length} { todos.length === 1 ? items[0] : items[1] } in your list.</h3>
                 </div>
-                <div className="container-lg justify-content-between text-end">
+                <div className="container-lg justify-content-end">
                 <span>
-                {userID}
-                </span>
-                <span>
-                <a onClick={handleSignOut}>Sign out</a>
+                <h6 class="hover-link" onClick={handleSignOut}>Sign out</h6>
                 </span>
                 </div>
             </nav>
@@ -28,18 +25,15 @@ const TodoNavbar = (props) => {
         <div className="todos-navbar">
             <nav class="navbar m-3 p-3 border-white bg-dark text-blue text-center">
                 <div className="container-lg justify-content-center">
-                    <h1 className="h1">Todo List</h1>
+                    <h1 className="h1">{userID}'s Todo List</h1>
                 </div>
                 
                 <div className="container-lg justify-content-center">
                 <h3>Currently, you have nothing to do.</h3>
                 </div>
-                <div className="container-lg justify-content-evenly text-end">
+                <div className="container-lg justify-content-end">
                 <span>
-                    {userID}
-                </span>
-                <span>
-                <a onClick={handleSignOut}>Sign out</a>
+                <h6 class="hover-link" onClick={handleSignOut}>Sign out</h6>
                 </span>
                 
                 </div>

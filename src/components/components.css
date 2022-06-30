@@ -30,7 +30,18 @@
     color: crimson;
   }
 
+  
+
   .notdone:hover {
     color: greenyellow;
     text-decoration: line-through;
+  }
+
+
+  .hover-link{
+    opacity: 0.5;
+  }
+
+  .hover-link:hover{
+    opacity: 1;
   }

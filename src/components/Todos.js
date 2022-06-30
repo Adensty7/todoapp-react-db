@@ -23,7 +23,7 @@ const Todos = (props) => {
                                         </div>
                                         <div class="col-2">
                                             <span className="float-end h5">
-                                            <i class="fa-solid fa-xmark" onClick={(e) => deleteTodo(e, todo._id)}></i>
+                                            <i class="fa-solid fa-xmark hover-link" onClick={(e) => deleteTodo(e, todo._id)}></i>
                                             </span>
                                         </div>
                                     </div>

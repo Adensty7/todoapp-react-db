@@ -34,8 +34,14 @@ const TodosPage = () => {
       });
   }, [todos])
 
-    const addTodo = (e, todo, UserID) => {
-      e.preventDefault();
+    const addTodo = (todo, UserID) => {
+      const checkTodo = todos.every(t => {
+        return t.todo !== todo;
+      });
+      if (!checkTodo) {
+        alert("This task is already in your To Do List");
+      }
+      else {
       if(todo.length <= 36){
         axios.post("https://adensty-todoapp-react-db-api.herokuapp.com/", {
         "user_id": UserID,
@@ -49,7 +55,7 @@ const TodosPage = () => {
       else {
         alert("A Todo can't be this long. Try somethin shorter.");
       }
-      
+    }
     }
 
     const deleteTodo = (e, id) => {

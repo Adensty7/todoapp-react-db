@@ -3,6 +3,7 @@ import TodoNavbar from "./TodoNavbar";
 import Todos from './Todos';
 import Cookies from 'universal-cookie';
 import axios from 'axios';
+import TodoForm from './TodoForm';
 
 const TodosPage = () => {
     const cookies = new Cookies();
@@ -37,6 +38,7 @@ const TodosPage = () => {
         <div>
             {loading && <TodoNavbar todos={todos} handleSignOut={handleSignOut} /> }
             {loading && <Todos todos={todos} /> }
+            {loading && <TodoForm />}
         </div>
      );
 }

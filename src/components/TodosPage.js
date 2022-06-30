@@ -75,7 +75,7 @@ const TodosPage = () => {
     
     return ( 
         <div>
-            {loading && <TodoNavbar todos={todos} handleSignOut={handleSignOut} /> }
+            {loading && <TodoNavbar todos={todos} handleSignOut={handleSignOut} userID={UserID} /> }
             {loading && <Todos todos={todos} deleteTodo={deleteTodo} updateTodo={updateTodo} /> }
             {loading && <TodoForm UserID={UserID} addTodo={addTodo}/>}
         </div>

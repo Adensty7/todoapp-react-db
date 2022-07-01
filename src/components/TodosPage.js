@@ -50,13 +50,13 @@ const TodosPage = () => {
         setIsError(true);
         setError("You already have a lot of todos in your list. Remove the completed ones and try again.")
       }
-      else if(!regex.test(todo)) {
-        setIsError(true);
-        setError("This todo either contains unnecessary whitespaces or contains words that are not alphanumeric.");
-      }
       else if(todo.length > 30){
         setIsError(true);
         setError("A Todo can't be this long. Try something shorter.");
+      }
+      else if(!regex.test(todo)) {
+        setIsError(true);
+        setError("This todo either contains unnecessary whitespaces or contains words that are not alphanumeric.");
       }
       else {
         setIsError(false);

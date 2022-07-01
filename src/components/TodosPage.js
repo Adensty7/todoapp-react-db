@@ -43,6 +43,9 @@ const TodosPage = () => {
       if (!checkTodo) {
         alert("This todo is already in your To Do List");
       }
+      else if (todos.length > 25) {
+        alert("You already have a lot of todos in your list. Remove the completed ones and try again.")
+      }
       else if(!regex.test(todo)) {
         alert("This todo either contains unnecessary whitespaces or contains words that are not alphanumeric. Try again.");
       }

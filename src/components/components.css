@@ -45,3 +45,7 @@
   .hover-link:hover{
     opacity: 1;
   }
+
+  .errors {
+    color: crimson;
+  }

@@ -14,6 +14,8 @@ const LoginPage = () => {
 
     const [username, setUsername] = useState('');
     const [remember, setRemember] = useState(false);
+    const [isError, setIsError] = useState(false);
+    const [Error, setError] = useState('');
     
     useEffect(() => {
       document.title = "Sign in"
@@ -23,9 +25,12 @@ const LoginPage = () => {
         e.preventDefault();
         const regex = /^[A-Za-z0-9]*$/;
         if(!regex.test(username)) {
+          setIsError(true);
+          setError("Username must be alphanumeric. Try again.")
           alert("Username must be alphanumeric. Try again.");
         }
         else {
+          setIsError(false);
           if (remember){
             cookies.set('UserID', username, { path: "/"});
           }
@@ -42,12 +47,12 @@ const LoginPage = () => {
         <div>
             <div class="container text-center my-5 py-5">
       <div class="d-flex justify-content-center mt-5">
-        <div class="card card-outline card-primary mx-3 px-3 border-white bg-dark text-blue">
+        <div class="card card-outline card-primary mx-3 px-3 border-white bg-dark text-blue col-3">
           <div class="card-body w-100">
             <h3 class="m-3">Todo App</h3>
 
             <form onSubmit={handleLogin} autocomplete="off">
-              <div class="input-group mb-4">
+              <div class="input-group mb-3">
                 <input
                   type="text"
                   class="form-control"
@@ -56,7 +61,9 @@ const LoginPage = () => {
                   required
                   onChange={(e) => setUsername(e.target.value)}
                 />
+                
               </div>
+              {isError && <div class="row mb-3 text-start"><div class="col-12"><span class="errors fs-6">{Error}</span></div></div>}
               <div class="row">
                 <div class="col-12 text-start h-100 mb-3">
                   <div class="form-check">

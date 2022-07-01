@@ -38,11 +38,18 @@ const TodosPage = () => {
       const checkTodo = todos.every(t => {
         return t.todo !== todo;
       });
+      // Regex for alphanumeric words with whitespace as delimiter
+      const regex = /^[A-Za-z0-9]+(?:\s[A-Za-z0-9]+)*$/;
       if (!checkTodo) {
-        alert("This task is already in your To Do List");
+        alert("This todo is already in your To Do List");
+      }
+      else if(!regex.test(todo)) {
+        alert("This todo either contains unnecessary whitespaces or contains words that are not alphanumeric. Try again.");
+      }
+      else if(todo.length > 36){
+        alert("A Todo can't be this long. Try somethin shorter.");
       }
       else {
-      if(todo.length <= 36 ){
         axios.post("https://adensty-todoapp-react-db-api.herokuapp.com/", {
         "user_id": UserID,
         "todo": todo,
@@ -52,10 +59,6 @@ const TodosPage = () => {
         console.log(res);
       })
       }
-      else {
-        alert("A Todo can't be this long. Try somethin shorter.");
-      }
-    }
     }
 
     const deleteTodo = (e, id) => {

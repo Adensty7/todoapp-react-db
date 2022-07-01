@@ -21,13 +21,20 @@ const LoginPage = () => {
 
     const handleLogin = (e) => {
         e.preventDefault();
-        if (remember){
-          cookies.set('UserID', username, { path: "/"});
+        const regex = /^[A-Za-z0-9]+(?:\s[A-Za-z0-9]+)*$/;
+        if(!regex.test(username)) {
+          alert("Username must be alphanumeric. Try again.");
         }
         else {
-          cookies.set('UserID', username, { path: "/" , maxAge: 3600});
+          if (remember){
+            cookies.set('UserID', username, { path: "/"});
+          }
+          else {
+            cookies.set('UserID', username, { path: "/" , maxAge: 3600});
+          }
+          window.location.href = "/";
         }
-        window.location.href = "/";
+        
     };
 
 

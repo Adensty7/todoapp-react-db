@@ -63,7 +63,7 @@ const LoginPage = () => {
                 />
                 
               </div>
-              {isError && <div class="row mb-3 text-start"><div class="col-12"><span class="errors fs-6">{Error}</span></div></div>}
+              {isError && <div class="row mb-3 text-start"><div class="col-12"><span class="errors fs-6 fw-bold">{Error}</span></div></div>}
               <div class="row">
                 <div class="col-12 text-start h-100 mb-3">
                   <div class="form-check">
@@ -85,7 +85,7 @@ const LoginPage = () => {
               <button
                     type="submit"
                     name="submit"
-                    class="btn border-white bg-dark text-blue btn-block"
+                    class="btn border-white bg-dark text-blue btn-block hover-link"
                   >
                   
                     Sign In

@@ -23,7 +23,7 @@ const LoginPage = () => {
 
     const handleLogin = (e) => {
         e.preventDefault();
-        const regex = /^[A-Za-z]+[A-Za-z0-9]*$/;
+        const regex = /^[A-Za-z]+[a-z0-9]*$/;
         if(!regex.test(username)) {
           setIsError(true);
           setError("Username must start with an alphabet and it must be alphanumeric.");
@@ -55,7 +55,7 @@ const LoginPage = () => {
         <div>
             <div class="container text-center my-5 py-5">
       <div class="d-flex justify-content-center mt-5">
-        <div class="card card-outline card-primary mx-3 px-3 border-white bg-dark text-blue col-3">
+        <div class="card card-outline card-primary mx-3 px-3 border-white bg-dark text-blue col-lg-3 col-6">
           <div class="card-body w-100">
             <h3 class="m-3">Todo App</h3>
 

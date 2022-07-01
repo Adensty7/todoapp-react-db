@@ -23,11 +23,18 @@ const LoginPage = () => {
 
     const handleLogin = (e) => {
         e.preventDefault();
-        const regex = /^[A-Za-z0-9]*$/;
+        const regex = /^[A-Za-z]+[A-Za-z0-9]*$/;
         if(!regex.test(username)) {
           setIsError(true);
-          setError("Username must be alphanumeric. Try again.")
-          alert("Username must be alphanumeric. Try again.");
+          setError("Username must start with an alphabet and it must be alphanumeric.");
+        }
+        else if(username.length < 3) {
+          setIsError(true);
+          setError("Username must be atleast 3 characters long.");
+        }
+        else if(username.length >= 20) {
+          setIsError(true);
+          setError("Username must be atmost 20 characters long.");
         }
         else {
           setIsError(false);

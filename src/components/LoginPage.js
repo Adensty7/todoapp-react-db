@@ -21,7 +21,7 @@ const LoginPage = () => {
 
     const handleLogin = (e) => {
         e.preventDefault();
-        const regex = /^[A-Za-z0-9]+(?:\s[A-Za-z0-9]+)*$/;
+        const regex = /^[A-Za-z0-9]*$/;
         if(!regex.test(username)) {
           alert("Username must be alphanumeric. Try again.");
         }

@@ -50,6 +50,10 @@ const TodosPage = () => {
         setIsError(true);
         setError("You already have a lot of todos in your list. Remove the completed ones and try again.")
       }
+      else if(todo.length < 3){
+        setIsError(true);
+        setError("A Todo can't be so short. Try again.");
+      }
       else if(todo.length > 30){
         setIsError(true);
         setError("A Todo can't be this long. Try something shorter.");

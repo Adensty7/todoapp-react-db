@@ -39,6 +39,7 @@ const LoginPage = () => {
           }
           window.location.href = "/";
         }
+        e.target.uname.value = "";
         
     };
 

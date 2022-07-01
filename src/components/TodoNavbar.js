@@ -5,7 +5,7 @@ const TodoNavbar = (props) => {
     const items = ["item", "items"];
     const {todos, handleSignOut, userID} = props;
     return todos.length ? (
-        <div className="todos-navbar">
+        <div class="todos-navbar">
             <nav class="navbar m-3 p-3 border-white bg-dark text-blue text-center">
                 <div className="container-lg justify-content-center">
                     <h1 className="h1">{userID}'s Todo List</h1>

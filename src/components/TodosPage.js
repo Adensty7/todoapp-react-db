@@ -54,7 +54,7 @@ const TodosPage = () => {
         setIsError(true);
         setError("This todo either contains unnecessary whitespaces or contains words that are not alphanumeric.");
       }
-      else if(todo.length > 36){
+      else if(todo.length > 30){
         setIsError(true);
         setError("A Todo can't be this long. Try something shorter.");
       }

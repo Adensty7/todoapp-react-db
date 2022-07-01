@@ -5,10 +5,10 @@ const Todos = (props) => {
 
         const {todos, deleteTodo, updateTodo} = props;
         return (
-            <div className="todos">
+            <div class="todos">
         <div className="container">
             <div class="row justify-content-center">
-                    <div class="col-lg-6">
+                    <div class="col-lg-8 col-12">
 
                         <div class="list-group m-3 p-3" >
                             

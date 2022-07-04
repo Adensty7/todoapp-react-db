@@ -6,7 +6,8 @@ const TodoNavbar = (props) => {
     const {todos, handleSignOut, userID} = props;
     return todos.length ? (
         <div class="todos-navbar">
-            <nav class="navbar m-3 p-3 border-white bg-dark text-blue text-center">
+           <div class="container-lg">
+           <nav class="navbar m-3 p-3 border-white bg-dark text-blue text-center">
                 <div className="container-lg justify-content-center">
                     <h1 className="h1">{userID}'s Todo List</h1>
                 </div>
@@ -20,9 +21,11 @@ const TodoNavbar = (props) => {
                 </span>
                 </div>
             </nav>
+           </div>
         </div>
     ) : (
         <div className="todos-navbar">
+            <div class="container-lg">
             <nav class="navbar m-3 p-3 border-white bg-dark text-blue text-center">
                 <div className="container-lg justify-content-center">
                     <h1 className="h1">{userID}'s Todo List</h1>
@@ -38,6 +41,7 @@ const TodoNavbar = (props) => {
                 
                 </div>
             </nav>
+            </div>
         </div>
     );
 }

@@ -39,7 +39,7 @@ const LoginPage = () => {
         else {
           setIsError(false);
           if (remember){
-            cookies.set('UserID', username, { path: "/"});
+            cookies.set('UserID', username, { path: "/", maxAge: 31536000});
           }
           else {
             cookies.set('UserID', username, { path: "/" , maxAge: 3600});
@@ -55,7 +55,7 @@ const LoginPage = () => {
         <div>
             <div class="container text-center my-5 py-5">
       <div class="d-flex justify-content-center mt-5">
-        <div class="card card-outline card-primary mx-3 px-3 border-white bg-dark text-blue col-lg-3 col-6">
+        <div class="card card-outline card-primary mx-3 px-3 border-white bg-dark text-blue col-lg-3 col-sm-6 col-9">
           <div class="card-body w-100">
             <h3 class="m-3">Todo App</h3>
 

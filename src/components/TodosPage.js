@@ -22,7 +22,7 @@ const TodosPage = () => {
     const [Error, setError] = useState('');
 
     const handleSignOut = () => {
-        window.location.href = '/login';
+        setLoading(false);
         cookies.remove('UserID'); 
     }
 

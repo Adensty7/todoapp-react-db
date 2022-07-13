@@ -9,6 +9,10 @@ const TodosPage = () => {
     const cookies = new Cookies();
 
     const UserID = cookies.get('UserID');
+
+    setTimeout(() => {
+      window.location.reload(false);
+    }, 60000);
     
     // cookies.remove('UserID');
 

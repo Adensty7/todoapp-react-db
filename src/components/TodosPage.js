@@ -21,9 +21,9 @@ const TodosPage = () => {
     const [isError, setIsError] = useState(false);
     const [Error, setError] = useState('');
 
-    const handleSignOut = () => {
-        setLoading(false);
+    const handleSignOut = async() => {
         cookies.remove('UserID'); 
+        window.location.href = "/login";
     }
 
     useEffect(() => {

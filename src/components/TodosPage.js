@@ -27,7 +27,7 @@ const TodosPage = () => {
 
     const handleSignOut = async() => {
         cookies.remove('UserID'); 
-        window.location.href = "/login";
+        window.location.reload(false);
     }
 
     useEffect(() => {

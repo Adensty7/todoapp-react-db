@@ -27,9 +27,9 @@ const TodoForm = (props) => {
         
     }
     return ( 
-        <div class="container">
-            <div class="row justify-content-center">
-                    <div class="col-lg-6 col-12 m-3 p-3 border-white bg-dark text-blue">
+        <div class="col-lg-6 col-12">
+                    <div class="todosform">
+                    <div class="m-3 p-3 border-white bg-dark text-blue">
                     <form onSubmit={(e) => checkCaptcha(e, todo, UserID, validated)}>
                         <label>Add New Todo: </label>
                         <input type="text" class="mb-4" name="todo" className="form-control" placeholder="Add Todo"
@@ -47,7 +47,7 @@ const TodoForm = (props) => {
                         </div>
                     </form>
                     </div>
-            </div>
+                    </div>
         </div>
      );
 }

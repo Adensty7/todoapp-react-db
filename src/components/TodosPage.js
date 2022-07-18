@@ -103,8 +103,11 @@ const TodosPage = () => {
     return ( 
         <div>
             {loading && <TodoNavbar todos={todos} handleSignOut={handleSignOut} userID={UserID} /> }
+            <div class="row justify-content-center align-items-center">
             {loading && <Todos todos={todos} deleteTodo={deleteTodo} updateTodo={updateTodo} /> }
             {loading && <TodoForm UserID={UserID} addTodo={addTodo} Error={Error} setError={setError} isError={isError} setIsError={setIsError}/>}
+            </div>
+            
         </div>
      );
 }

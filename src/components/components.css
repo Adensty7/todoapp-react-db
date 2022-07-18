@@ -49,3 +49,11 @@
   .errors {
     color: crimson;
   }
+
+  .completed {
+    color: greenyellow;
+  }
+
+  .notcompleted {
+    color: white;
+  }

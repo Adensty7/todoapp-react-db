@@ -40,7 +40,8 @@ const TodosPage = () => {
       });
   }, [todos])
 
-    const addTodo = (todo, UserID) => {
+    const addTodo = (todo, deadline, UserID) => {
+      const date = new Date().toLocaleString();
       const checkTodo = todos.every(t => {
         return t.todo !== todo;
       });
@@ -71,7 +72,9 @@ const TodosPage = () => {
         axios.post("https://adensty-todoapp-react-db-api.herokuapp.com/", {
         "user_id": UserID,
         "todo": todo,
-        "done": false
+        "done": false,
+        "creationTime": date,
+        "deadline": deadline
       })
       .then((res) => {
         console.log(res);

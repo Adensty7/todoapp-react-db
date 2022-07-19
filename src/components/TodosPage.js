@@ -41,15 +41,13 @@ const TodosPage = () => {
   }, [todos])
 
     const addTodo = (todo, deadline, UserID) => {
-      const time = new Date().toLocaleString();
-      const dt = time.split(", ")
-      const test = Intl.DateTimeFormat('en-US').format(new Date());
-      const date = test + ', ' + dt[1];
-      //console.log(date);
-      const dltime = deadline.toLocaleString();
-      const dt2 = dltime.split(", ")
-      const test2 = Intl.DateTimeFormat('en-US').format(new Date(deadline));
-      const deadline2 = test2 + ', ' + dt2[1];
+      let options = {  
+        year: "numeric", month: "2-digit",  
+        day: "2-digit", hour: "2-digit", minute: "2-digit", second: "2-digit" 
+      };   
+      const date = new Date().toLocaleString("en-us", options)
+      //console.log(date); 
+      const deadline2 = new Date(deadline).toLocaleString("en-us", options);
       //console.log(deadline2);
       const checkTodo = todos.every(t => {
         return t.todo !== todo;

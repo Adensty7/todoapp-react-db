@@ -41,7 +41,16 @@ const TodosPage = () => {
   }, [todos])
 
     const addTodo = (todo, deadline, UserID) => {
-      const date = new Date().toLocaleString();
+      const time = new Date().toLocaleString();
+      const dt = time.split(", ")
+      const test = Intl.DateTimeFormat('en-US').format(new Date());
+      const date = test + ', ' + dt[1];
+      //console.log(date);
+      const dltime = deadline.toLocaleString();
+      const dt2 = dltime.split(", ")
+      const test2 = Intl.DateTimeFormat('en-US').format(new Date(deadline));
+      const deadline2 = test2 + ', ' + dt2[1];
+      //console.log(deadline2);
       const checkTodo = todos.every(t => {
         return t.todo !== todo;
       });
@@ -74,7 +83,7 @@ const TodosPage = () => {
         "todo": todo,
         "done": false,
         "creationTime": date,
-        "deadline": deadline
+        "deadline": deadline2
       })
       .then((res) => {
         console.log(res);

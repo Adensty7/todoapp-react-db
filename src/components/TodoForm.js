@@ -6,7 +6,7 @@ const TodoForm = (props) => {
     const {UserID, addTodo, Error, setError, isError, setIsError} = props;
     const [todo, setTodo] = useState('');
     const [deadline, setDeadline] = useState(null);
-    const [validated, setValidated] = useState(false);
+    const [validated, setValidated] = useState(true);
 
 
 
@@ -52,7 +52,7 @@ const TodoForm = (props) => {
                         <input type="text" class="mb-4" name="todo" className="form-control" placeholder="Add Todo"
                         onChange={(e) => setTodo(e.target.value)} required autoComplete='off' />
                         <label>Set Deadline: </label>
-                        <input type="datetime-local" class="mb-4" name="deadline" className="form-control"
+                        <input type="datetime-local" class="mb-4" name="deadline" className="form-control" pattern='(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d'
                         onChange={(e) => setDeadline(e.target.value)} required />
                         {isError && <div class="row my-3 text-start"><div class="col-12"><span class="errors fs-6 fw-bold">{Error}</span></div></div>}
               <div class="row"></div>
@@ -60,7 +60,7 @@ const TodoForm = (props) => {
                             <button type="submit" className="btn btn-blue my-3" ><i class="fa-solid fa-plus"></i></button>
                         </div>
                         <div class="justify-content-center col-12 d-grid">
-                        <ReCAPTCHA class="mb-3"
+                        <ReCAPTCHA class="mb-3" hidden
                         sitekey="6LcpkU8gAAAAAOdW_rmwCHWbNQuOgSnKB89w1EXf"
                         onChange={onCaptcha}
                         />

@@ -46,9 +46,9 @@ const TodosPage = () => {
         day: "2-digit", hour: "2-digit", minute: "2-digit", second: "2-digit" 
       };   
       const date = new Date().toLocaleString("en-us", options)
-      //console.log(date); 
+      console.log(date); 
       const deadline2 = new Date(deadline).toLocaleString("en-us", options);
-      //console.log(deadline2);
+      console.log(deadline2);
       const checkTodo = todos.every(t => {
         return t.todo !== todo;
       });

@@ -12,12 +12,18 @@ const Todos = (props) => {
                             
                             { todos.map(todo => {
                                 const dt = todo.creationTime.split(", ");
-                                const timeRemaining = new Date(todo.deadline).getTime() - new Date().getTime()
-                                const seconds = timeRemaining;
-                                const days = Math.floor(seconds / (1000 * 60 *  60 * 24));
-                                var iso = new Date(seconds).toISOString().substr(11, 8);
-                                if(days > 0){
-                                    iso = days + ":" + iso
+                                var dc = false;
+                                var seconds = 1;
+                                if(todo.deadline !== "Invalid Date") {
+                                    dc = true;
+                                    const timeRemaining = new Date(todo.deadline).getTime() - new Date().getTime()
+                                    seconds = timeRemaining;
+                                    const days = Math.floor(seconds / (1000 * 60 *  60 * 24));
+                                    var iso = new Date(seconds).toISOString().substr(11, 8);
+                                    if(days > 0){
+                                        iso = days + ":" + iso
+                                    }
+                                    
                                 }
                                 
                                 
@@ -26,26 +32,26 @@ const Todos = (props) => {
                                     <div class="list-group-item py-3 border-white bg-dark text-blue">
                                         <div className="row align-items-center">
                                             <div class="col-10 done" > 
-                                                <div>
-                                                {seconds < 0 && <h5 class="mb-1 notcompleted">{todo.todo}</h5>}
+                                            <div>
+                                                {dc && seconds < 0 && <h5 class="mb-1 notcompleted">{todo.todo}</h5>}
                                                 {seconds > 0 && !todo.done && <h5 class="mb-1 notdone" onClick={(e) => updateTodo(e, todo.done, todo._id)}>{todo.todo}</h5>}
                                                 {seconds > 0 && todo.done && <h5 class="mb-1 donetodo" onClick={(e) => updateTodo(e, todo.done, todo._id)}>{todo.todo}</h5>}
+                                                
                                             <div>
                                                 </div>
                                                 {seconds > 0 && <h6 class="mb-1">Created at {dt[1]} on {dt[0]}</h6> }
                                             </div>
                                             <div>
-                                                {seconds > 0 && <h6 class="mb-1">Time Remaining: {iso}</h6> }
-                                                {seconds < 0 && !todo.done && <h6 class="mb-1 errors">Todo Not Done</h6>}
-                                                {seconds < 0 && todo.done && <h6 class="mb-1 completed">Todo Done</h6>}
+                                                {dc && seconds > 0 && <h6 class="mb-1">Time Remaining: {iso}</h6> }
+                                                {dc && seconds < 0 && !todo.done && <h6 class="mb-1 errors">Todo Not Done</h6>}
+                                                {dc && seconds < 0 && todo.done && <h6 class="mb-1 completed">Todo Done</h6>}
                                             </div>
                                             </div>
                                             <div class="col-2">
                                                 <span className="float-end h5">
                                                 <i class="fa-solid fa-xmark hover-link" onClick={(e) => deleteTodo(e, todo._id)}></i>
-                                                </span> 
+                                                </span>
                                             </div>
-                                            
                                             
                                         </div>
                                     </div>
